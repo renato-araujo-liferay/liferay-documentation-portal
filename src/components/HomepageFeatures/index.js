@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/ray.svg').default,
     description: (
       <>
-        This was designed to make easier the behavior understand of our functions and Functions.
+        This was designed to make easier the behavior understand of our Macros and Functions.
       </>
     ),
   },
