@@ -11,7 +11,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'http://liferaydoc.hopto.org:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -61,14 +61,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      
       algolia: {
         // The application ID provided by Algolia
         appId: 'P22AMQJJI0',
   
         // Public API key: it is safe to commit it
-        apiKey: '7726ef999169c11ef4334d7ebaef5087',
+        apiKey: '02c0feeb219d47f5095cf5d6109e4506',
   
-        indexName: 'YOUR_INDEX_NAME',
+        indexName: 'function_query_suggestions',
   
         // Optional: see doc section below
         contextualSearch: true,
@@ -169,12 +170,40 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-    themes: ['@docusaurus/theme-mermaid'],
+    themes: [
+      // ... Your other themes.
+      [
+        require.resolve('@easyops-cn/docusaurus-search-local'),
+        /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+        ({
+          hashed: true,
+        }),
+      ],
+    ],
+    // plugins: [require.resolve('docusaurus-lunr-search')],
   // In order for Mermaid code blocks in Markdown to work,
   // you also need to enable the Remark plugin with this option
     markdown: {
       mermaid: true,
   },
 };
-
+module.exports = {
+  // ... Your other configurations.
+  themes: [
+    // ... Your other themes.
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en", "zh"],
+        // ```
+      }),
+    ],
+  ],
+};
 module.exports = config;
