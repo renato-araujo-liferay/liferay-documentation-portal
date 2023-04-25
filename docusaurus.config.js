@@ -136,12 +136,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Portal',
+                href: 'https://www.liferay.com/pt/home',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Internal Documentation  ',
+                href: 'https://help.liferay.com/hc/en-us/categories/360000868172-Documentation',
               },
               {
                 label: 'Twitter',
@@ -168,9 +168,12 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: [
+          'mermaid',
+        ],
       },
     }),
-    themes: [
+        themes: [
       // ... Your other themes.
       [
         require.resolve('@easyops-cn/docusaurus-search-local'),
@@ -180,30 +183,6 @@ const config = {
         }),
       ],
     ],
-    // plugins: [require.resolve('docusaurus-lunr-search')],
-  // In order for Mermaid code blocks in Markdown to work,
-  // you also need to enable the Remark plugin with this option
-    markdown: {
-      mermaid: true,
-  },
 };
-module.exports = {
-  // ... Your other configurations.
-  themes: [
-    // ... Your other themes.
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
-      ({
-        // ... Your options.
-        // `hashed` is recommended as long-term-cache of index file is possible.
-        hashed: true,
-        // For Docs using Chinese, The `language` is recommended to set to:
-        // ```
-        // language: ["en", "zh"],
-        // ```
-      }),
-    ],
-  ],
-};
+
 module.exports = config;
